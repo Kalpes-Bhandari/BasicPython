@@ -1,0 +1,40 @@
+import random
+
+cards = [ 'Ace', 'Duece', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King']
+suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+deck = []
+
+for x in range(13):
+    for y in range(4):
+        deck.append(tuple((cards[x], suits[y])))
+
+random.shuffle(deck)
+
+iWin = 0;
+uWin = 0;
+tie = 0;
+
+count = 1
+
+for z in range(10):
+    myDeck = []
+
+    for i in range(5):
+        x = random.randint(0,51)
+        myDeck.append(deck[x])
+    
+    print(f'Game {count}, My deck: {myDeck}')
+
+    otherDeck = []
+
+    for j in range(5):
+            y = random.randint(0,51)
+            otherDeck.append(deck[y])
+
+    print(f'Game {count}, Your deck: {otherDeck}')
+    
+    count += 1
+    
+    winner = input('Who Wins? ')
+    print('\n')
+
