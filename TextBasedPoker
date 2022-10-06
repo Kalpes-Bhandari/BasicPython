@@ -1,3 +1,15 @@
+"""
+Assingment:
+
+Given lists of cards = [ 'Ace', 'Duece', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King'] 
+and their suits = [ Hearts', 'Diamonds', 'Clubs', 'Spades'], make a list of all the 52 possible tuples. 
+Your list will look like the below with all the 52 tuples displayed.
+Now use the shuffle function inside the random module to shuffle the cards. 
+Play 10 games of poker with your friends as follows: Pick 5 cards randomly for you 10 times and 5 cards for your friend 10 times. 
+Compare the corresponding 5 cards and decide who wins the most number of times. 
+
+"""
+
 import random
 
 cards = [ 'Ace', 'Duece', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King']
@@ -13,7 +25,6 @@ random.shuffle(deck)
 iWin = 0;
 uWin = 0;
 tie = 0;
-
 count = 1
 
 for z in range(10):
