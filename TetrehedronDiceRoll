@@ -1,0 +1,42 @@
+"""
+Assingment:
+
+Write a script to simulate rolls of a 4-sided pyramid shaped die also called tetrahedron or D4 die one million times and 
+make a bar chart of it's values and frequencies. Include all the details in the plot inlcuding title, axis labels, legends,
+displaying the frequency on the top of the bar etc.
+
+"""
+
+import matplotlib.pyplot as plt
+from collections import Counter
+import random
+import seaborn as sns
+
+roll = [random.randrange(1,5) for i in range(1_000_000)]
+data = list(Counter(roll).items())
+data.sort()
+
+roll_list = []
+freq_list = []
+for item in data:
+    roll_list.append(item[0])
+    freq_list.append(item[1])
+plt.suptitle('Data: Rolling 4-sided Dice One Million Times')
+plt.xlabel('Side of Dice')
+plt.ylabel('Frequency')
+plt.legend(['Data'])
+colors = ["red", "blue", "green", "yellow"]
+labels = ["landed on 1", "landed on 2", "landed on 3", "landed on 4"]
+plt.bar(roll_list, freq_list, color=colors)
+plt.ylim(top=max(freq_list)*1.10)
+plt.xlim(right=max(roll_list)*1.60)
+
+colors = {'landed on 1':'red', 'landed on 2':'blue', 'landed on 3':'green', 'landed on 4':'yellow'}         
+labels = list(colors.keys())
+handles = [plt.Rectangle((0,0),1,1, color=colors[label]) for label in labels]
+plt.legend(handles, labels, title = "Legend", loc = "right")
+
+for i in range(len(roll_list)):
+    plt.text(i+1,freq_list[i],freq_list[i],ha='center', va='bottom')
+
+plt.show()
